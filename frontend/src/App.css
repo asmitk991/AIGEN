@@ -1,0 +1,55 @@
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 40px -10px rgba(118, 75, 162, 0.1);
+  border-radius: 2rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 20px 50px -15px rgba(118, 75, 162, 0.15);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+  border: 2px solid #f1f5f9;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.input-pastel {
+  @apply bg-white/60 border-slate-200 focus:bg-white focus:ring-4 focus:ring-purple-100 focus:border-purple-300 outline-none transition-all duration-300 rounded-2xl px-5 py-4;
+}
+
+.btn-primary-pastel {
+  @apply bg-gradient-to-r from-purple-400 to-indigo-400 text-white font-bold tracking-wide shadow-lg shadow-purple-200 hover:shadow-purple-300 hover:from-purple-500 hover:to-indigo-500 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2;
+}
+
+.tag-pastel {
+  @apply px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border transition-all;
+}

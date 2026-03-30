@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-['Quicksand'] text-slate-700 antialiased text-lg;
+    background: fixed linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+    min-height: 100vh;
+  }
+  
+  h1 { @apply font-['Fredoka'] font-bold text-slate-800 text-6xl; }
+  h2 { @apply font-['Fredoka'] font-bold text-slate-800 text-4xl; }
+  h3 { @apply font-['Fredoka'] font-bold text-slate-800 text-2xl; }
+}
+
+.pastel-bg-1 { background-color: #f3e8ff; } /* Lavender */
+.pastel-bg-2 { background-color: #e0f2fe; } /* Sky */
+.pastel-bg-3 { background-color: #f0fdf4; } /* Mint */
+.pastel-bg-4 { background-color: #fff7ed; } /* Peach */
