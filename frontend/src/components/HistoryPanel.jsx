@@ -23,7 +23,7 @@ export default function HistoryPanel({ history, onDelete, onSelect, activeId, is
 
       <aside className={clsx(
         'fixed inset-y-0 right-0 z-50 w-80 flex flex-col bg-[#faf9f8] border-l border-[#eeeeed] transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]',
-        'lg:relative lg:translate-x-0',
+        'lg:sticky lg:top-0 lg:right-auto lg:inset-y-auto lg:z-auto lg:h-screen lg:translate-x-0 lg:shadow-none',
         isOpen ? 'translate-x-0 shadow-[-20px_0_60px_-10px_rgba(124,58,237,0.08)]' : 'translate-x-full'
       )}>
 
@@ -82,11 +82,6 @@ export default function HistoryPanel({ history, onDelete, onSelect, activeId, is
           )}
         </div>
 
-        {/* Upgrade Banner (decorative) */}
-        <div className="m-4 p-5 rounded-2xl bg-gradient-to-br from-[#630ed4] to-[#7c3aed] text-white">
-          <p className="text-sm font-bold mb-1">Upgrade to Ultra</p>
-          <p className="text-xs opacity-75 leading-relaxed">Unlock unlimited generation and exclusive high-fidelity models.</p>
-        </div>
 
       </aside>
     </>

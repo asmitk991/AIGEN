@@ -65,7 +65,7 @@ export default function App() {
       </button>
 
       {/* Main layout */}
-      <div className="relative z-10 flex flex-1 min-w-0 lg:pr-80">
+      <div className="relative z-10 flex flex-1 min-w-0">
 
         {/* ─── Scrollable Content ─── */}
         <main className="flex-1 min-w-0 h-screen overflow-y-auto">
@@ -173,14 +173,27 @@ export default function App() {
       </div>
 
       {/* History Sidebar */}
-      <HistoryPanel
-        history={history}
-        onDelete={deleteFromHistory}
-        onSelect={handleSelectHistory}
-        activeId={generatedContent?.id}
-        isOpen={isHistoryOpen}
-        toggle={() => setIsHistoryOpen(!isHistoryOpen)}
-      />
+      <div className="hidden lg:block flex-shrink-0">
+        <HistoryPanel
+          history={history}
+          onDelete={deleteFromHistory}
+          onSelect={handleSelectHistory}
+          activeId={generatedContent?.id}
+          isOpen={isHistoryOpen}
+          toggle={() => setIsHistoryOpen(!isHistoryOpen)}
+        />
+      </div>
+      {/* Mobile History */}
+      <div className="lg:hidden">
+        <HistoryPanel
+          history={history}
+          onDelete={deleteFromHistory}
+          onSelect={handleSelectHistory}
+          activeId={generatedContent?.id}
+          isOpen={isHistoryOpen}
+          toggle={() => setIsHistoryOpen(!isHistoryOpen)}
+        />
+      </div>
     </div>
   );
 }
