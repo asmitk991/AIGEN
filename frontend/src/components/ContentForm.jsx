@@ -1,31 +1,21 @@
 import React from 'react';
-import { Send, Sparkles, Wand2 } from 'lucide-react';
 import { clsx } from 'clsx';
+import { Sparkles, ChevronDown } from 'lucide-react';
 
 const audiences = [
-  'General audience',
-  'Tech professionals',
-  'Small business owners',
-  'Students',
-  'Marketing teams',
-  'Entrepreneurs',
-  'HR professionals'
-];
-
-const contentTypes = [
-  { id: 'blog', label: 'Blog Post', icon: '📝', color: 'bg-purple-100 text-purple-600 border-purple-200' },
-  { id: 'tweet', label: 'Tweets', icon: '🐦', color: 'bg-blue-100 text-blue-600 border-blue-200' },
-  { id: 'linkedin', label: 'LinkedIn', icon: '💼', color: 'bg-indigo-100 text-indigo-600 border-indigo-200' },
-  { id: 'email', label: 'Email', icon: '📧', color: 'bg-peach-100 text-orange-600 border-orange-200' }
+  'General audience', 'Tech professionals', 'Small business owners',
+  'Students', 'Marketing teams', 'Entrepreneurs', 'HR professionals'
 ];
 
 const tones = [
-  'informative',
-  'casual',
-  'professional',
-  'humorous',
-  'persuasive',
-  'inspirational'
+  'Informative', 'Casual', 'Professional', 'Humorous', 'Persuasive', 'Inspirational'
+];
+
+const contentTypes = [
+  { id: 'blog',     label: 'Blog Post',  sub: 'SEO-optimized long form',           icon: '📝' },
+  { id: 'tweet',    label: 'Tweets',     sub: 'Viral thread generation',            icon: '🐦' },
+  { id: 'linkedin', label: 'LinkedIn',   sub: 'Thought leadership updates',         icon: '💼' },
+  { id: 'email',    label: 'Email',      sub: 'High-converting outreach',           icon: '📧' },
 ];
 
 export default function ContentForm({ onSubmit, loading, formData, setFormData }) {
@@ -40,99 +30,100 @@ export default function ContentForm({ onSubmit, loading, formData, setFormData }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-10 animate-fadeIn">
-      <div className="space-y-4">
-        <label className="text-xl font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2">
-          <Wand2 className="w-6 h-6 text-purple-400" />
-          The Topic
+    <form onSubmit={handleSubmit} className="space-y-8">
+      {/* Textarea */}
+      <div>
+        <label className="block text-xs font-semibold uppercase tracking-widest text-[#7b7487] mb-3">
+          What's your topic?
         </label>
         <textarea
           name="topic"
           required
           value={formData.topic}
           onChange={handleChange}
-          placeholder="What's on your mind? (e.g. The future of AI, My first startup...)"
-          className="w-full input-pastel min-h-[160px] resize-none text-2xl text-slate-800 placeholder:text-slate-300"
+          placeholder="Describe what you want to create — a blog post, a tweet, a marketing email..."
+          rows={5}
+          className="input-studio w-full px-5 py-4 text-[1rem] leading-relaxed text-[#1a1c1c] placeholder:text-[#ccc3d8] resize-none"
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div className="space-y-4">
-          <label className="text-xl font-bold text-slate-500 uppercase tracking-widest">Target Audience</label>
-          <select
-            name="audience"
-            value={formData.audience}
-            onChange={handleChange}
-            className="w-full input-pastel text-2xl text-slate-800 font-semibold cursor-pointer appearance-none bg-no-repeat bg-[right_1.5rem_center] bg-[length:1em]"
-          >
-            {audiences.map(a => (
-              <option key={a} value={a}>{a}</option>
-            ))}
-          </select>
+      {/* Dropdowns */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div>
+          <label className="block text-xs font-semibold uppercase tracking-widest text-[#7b7487] mb-3">
+            Target Audience
+          </label>
+          <div className="relative">
+            <select
+              name="audience"
+              value={formData.audience}
+              onChange={handleChange}
+              className="input-studio w-full px-5 py-4 text-sm font-medium text-[#1a1c1c] appearance-none cursor-pointer pr-10"
+            >
+              {audiences.map(a => <option key={a} value={a}>{a}</option>)}
+            </select>
+            <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#7b7487] pointer-events-none" />
+          </div>
         </div>
-
-        <div className="space-y-4">
-          <label className="text-xl font-bold text-slate-500 uppercase tracking-widest">Atmosphere (Tone)</label>
-          <select
-            name="tone"
-            value={formData.tone}
-            onChange={handleChange}
-            className="w-full input-pastel text-2xl text-slate-800 font-semibold cursor-pointer appearance-none bg-no-repeat bg-[right_1.5rem_center] bg-[length:1em]"
-          >
-            {tones.map(t => (
-              <option key={t} value={t}>{t.charAt(0).toUpperCase() + t.slice(1)}</option>
-            ))}
-          </select>
+        <div>
+          <label className="block text-xs font-semibold uppercase tracking-widest text-[#7b7487] mb-3">
+            Tone & Atmosphere
+          </label>
+          <div className="relative">
+            <select
+              name="tone"
+              value={formData.tone}
+              onChange={handleChange}
+              className="input-studio w-full px-5 py-4 text-sm font-medium text-[#1a1c1c] appearance-none cursor-pointer pr-10"
+            >
+              {tones.map(t => <option key={t} value={t.toLowerCase()}>{t}</option>)}
+            </select>
+            <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#7b7487] pointer-events-none" />
+          </div>
         </div>
       </div>
 
-      <div className="space-y-6">
-        <label className="text-xl font-bold text-slate-500 uppercase tracking-widest block">Choose Format</label>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-          {contentTypes.map(({ id, label, icon, color }) => (
-            <label
+      {/* Content Type Cards */}
+      <div>
+        <label className="block text-xs font-semibold uppercase tracking-widest text-[#7b7487] mb-4">
+          Format
+        </label>
+        <div className="grid grid-cols-2 gap-4">
+          {contentTypes.map(({ id, label, sub, icon }) => (
+            <button
               key={id}
-              className={clsx(
-                "relative flex flex-col items-center justify-center p-8 rounded-[2.5rem] border-2 cursor-pointer transition-all duration-300 group",
-                formData.contentType === id 
-                  ? `${color.split(' ')[0]} border-purple-400 bg-white shadow-2xl shadow-purple-100 scale-105` 
-                  : "border-slate-100 bg-white hover:border-purple-200 hover:bg-slate-50"
-              )}
+              type="button"
+              onClick={() => setFormData(prev => ({ ...prev, contentType: id }))}
+              className={clsx('type-card text-left p-5', formData.contentType === id && 'selected')}
             >
-              <input
-                type="radio"
-                name="contentType"
-                value={id}
-                checked={formData.contentType === id}
-                onChange={handleChange}
-                className="sr-only"
-              />
               <span className={clsx(
-                "text-5xl mb-4 transition-transform duration-300 group-hover:scale-110",
-                formData.contentType === id ? "animate-float" : ""
+                'text-3xl block mb-3 transition-transform duration-300',
+                formData.contentType === id ? 'scale-110' : 'group-hover:scale-110'
               )}>{icon}</span>
-              <span className={clsx(
-                "text-sm font-black uppercase tracking-tighter opacity-70",
-                formData.contentType === id ? "text-purple-600" : "text-slate-400"
-              )}>{label}</span>
-            </label>
+              <p className={clsx(
+                'font-semibold text-sm mb-1',
+                formData.contentType === id ? 'text-[#630ed4]' : 'text-[#1a1c1c]'
+              )}>{label}</p>
+              <p className="text-xs text-[#7b7487] leading-relaxed">{sub}</p>
+            </button>
           ))}
         </div>
       </div>
 
+      {/* Submit */}
       <button
         type="submit"
         disabled={loading}
-        className={clsx(
-          "w-full h-24 rounded-[2.5rem] btn-primary-pastel text-3xl shadow-2xl transition-all duration-500",
-          loading && "opacity-60 cursor-not-allowed"
-        )}
+        className="w-full btn-gradient text-white font-semibold py-5 rounded-2xl flex items-center justify-center gap-3 text-base tracking-wide disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {loading ? (
-          <div className="w-10 h-10 border-4 border-white/40 border-t-white rounded-full animate-spin" />
+          <>
+            <svg className="animate-spin-ring w-5 h-5 border-2 border-white/30 border-t-white rounded-full" viewBox="0 0 24 24" />
+            Generating...
+          </>
         ) : (
           <>
-            <Sparkles className="w-8 h-8" />
+            <Sparkles className="w-5 h-5" />
             Bake some content ✨
           </>
         )}
