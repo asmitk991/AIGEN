@@ -8,25 +8,25 @@ A full-stack AI-powered content generation app built with **React**, **Express**
 
 ---
 
-## 🚀 Live Demo
+## Live Demo
 
-- **Frontend:** [aigen.vercel.app](https://aigendev-27awicyl5-asmitk991s-projects.vercel.app)
-- **Backend API:** [aigen-p1k0.onrender.com](https://aigen-p1k0.onrender.com/api/health)
-
----
-
-## ✨ Features
-
-- 🧠 **Gemini 2.5 Flash** — cutting-edge AI generation with smart fallback
-- 📝 **4 Content Types** — Blog Posts, Tweets, LinkedIn Posts, Emails
-- 🎨 **Aesthetic Pastel UI** — glassmorphism design with smooth animations
-- 📦 **Local History** — all past generations saved to browser localStorage
-- 📋 **Copy & Download** — export any generated content instantly
-- 📱 **Fully Responsive** — works beautifully on mobile and desktop
+- **Frontend:** https://aigendev-27awicyl5-asmitk991s-projects.vercel.app
+- **Backend API:** https://aigen-p1k0.onrender.com/api/health
 
 ---
 
-## 🛠️ Tech Stack
+## Features
+
+- Gemini 2.5 Flash — cutting-edge AI generation with smart fallback
+- 4 Content Types — Blog Posts, Tweets, LinkedIn Posts, Emails
+- Aesthetic Pastel UI — glassmorphism design with smooth animations
+- Local History — all past generations saved to browser localStorage
+- Copy and Download — export any generated content instantly
+- Fully Responsive — works beautifully on mobile and desktop
+
+---
+
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -38,7 +38,7 @@ A full-stack AI-powered content generation app built with **React**, **Express**
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 AIGEN/
@@ -61,12 +61,12 @@ AIGEN/
 
 ---
 
-## ⚙️ Local Setup
+## Local Setup
 
 ### Prerequisites
 
 - Node.js v18+
-- A free [Google AI Studio](https://aistudio.google.com/) API key
+- A free Google AI Studio API key from https://aistudio.google.com/
 
 ### 1. Clone the repo
 
@@ -115,44 +115,40 @@ Start the app:
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) 🎉
+Open http://localhost:5173
 
 ---
 
-## 🌐 Deployment Guide
+## Deployment
 
 ### Frontend on Vercel
 
-1. Import your GitHub repo on [vercel.com](https://vercel.com)
-2. Set **Root Directory** to `frontend`
-3. Set **Build Command** to `npm run build`
-4. Set **Output Directory** to `dist`
-5. Add environment variable:
-
-```
-VITE_API_URL = https://your-render-backend.onrender.com/api
-```
+1. Import your GitHub repo on vercel.com
+2. Set Root Directory to `frontend`
+3. Set Build Command to `npm run build`
+4. Set Output Directory to `dist`
+5. Add environment variable: `VITE_API_URL=https://your-render-url.onrender.com/api`
 
 ### Backend on Render
 
-1. Create a new **Web Service** on [render.com](https://render.com)
-2. Set **Root Directory** to `backend`
-3. Set **Build Command** to `npm install`
-4. Set **Start Command** to `node server.js`
+1. Create a new Web Service on render.com
+2. Set Root Directory to `backend`
+3. Set Build Command to `npm install`
+4. Set Start Command to `node server.js`
 5. Add environment variables:
 
 ```
-GEMINI_API_KEY = your_api_key_here
-PORT = 5001
-FRONTEND_URL = https://your-vercel-app.vercel.app
+GEMINI_API_KEY=your_api_key_here
+PORT=5001
+FRONTEND_URL=https://your-vercel-app.vercel.app
 ```
 
 ---
 
-## 📄 License
+## License
 
 MIT — free to use and modify.
 
 ---
 
-Made with ❤️ by [Asmit Kumar](https://github.com/asmitk991)
+Made with love by Asmit Kumar — https://github.com/asmitk991
