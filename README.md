@@ -10,8 +10,8 @@ A full-stack AI-powered content generation app built with **React**, **Express**
 
 ## Live Demo
 
-- **Frontend:** https://aigendev-27awicyl5-asmitk991s-projects.vercel.app
-- **Backend API:** https://aigen-p1k0.onrender.com/api/health
+- **Frontend:** [https://aigendev-27awicyl5-asmitk991s-projects.vercel.app](https://aigendev.vercel.app/)
+
 
 ---
 
